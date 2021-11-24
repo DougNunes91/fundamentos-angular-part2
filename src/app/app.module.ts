@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { PhotosModule } from './photos/photos.module';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { PhotosModule } from './photos/photos.module';
   imports: [
     BrowserModule,
     HttpClientModule,
-    PhotosModule
+    PhotosModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
