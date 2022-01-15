@@ -14,10 +14,13 @@ export class PhotosComponent implements OnChanges {
 
   //
   ngOnChanges(changes: SimpleChanges){
-    this.rows = this.groupColumns(this.photos);
+    if (changes.photos){
+      this.rows = this.groupColumns(this.photos);
+    }
   }
 
   groupColumns(photos: Photo[]) {
+
     const newRows = [];
 
     // saltando de 3 em 3, comecando pelo 0
