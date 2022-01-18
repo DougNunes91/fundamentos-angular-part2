@@ -3,7 +3,6 @@ import { Photo } from './../photo/photo';
 import { Component, OnDestroy, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs';
-import { debounceTime } from 'rxjs/operators'
 
 
 
@@ -12,7 +11,7 @@ import { debounceTime } from 'rxjs/operators'
   templateUrl: './photo-list.component.html',
   styleUrls: ['./photo-list.component.css']
 })
-export class PhotoListComponent implements OnInit, OnDestroy {
+export class PhotoListComponent implements OnInit {
 
 
   photos: Photo[] = [];
@@ -32,17 +31,12 @@ export class PhotoListComponent implements OnInit, OnDestroy {
 
     this.photos = this.activatedRoute.snapshot.data['photos'];
 
-    this.debounce.pipe(debounceTime(300)).subscribe(filter => this.filter = filter);
-
-  }
-
-  ngOnDestroy(): void {
-    this.debounce.unsubscribe();
   }
 
   //Esse metodo será chamado quando for clicado o botão
   load() {
 
+    this.filter = '';
     this.photoService
     //++ é um pré-incremento para pegar a segunda pagina
         .listFromUserPaginated(this.userName, ++this.currentPage)

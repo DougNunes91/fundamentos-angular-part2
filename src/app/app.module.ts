@@ -1,3 +1,4 @@
+import { CardModule } from './shared/components/card/card.module';
 import { ErrorsModule } from './errors/errors.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -9,15 +10,15 @@ import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
-    AppComponent
-
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     PhotosModule,
     AppRoutingModule,
-    ErrorsModule
+    ErrorsModule,
+    CardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
