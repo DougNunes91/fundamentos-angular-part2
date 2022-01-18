@@ -42,7 +42,6 @@ export class PhotoListComponent implements OnInit, OnDestroy {
 
   //Esse metodo será chamado quando for clicado o botão
   load() {
-    console.log("clicou");
 
     this.photoService
     //++ é um pré-incremento para pegar a segunda pagina
